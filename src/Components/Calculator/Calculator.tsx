@@ -52,9 +52,9 @@ const Calculator: React.FC = () => {
                 <SC.DataText>kg</SC.DataText>
             </SC.DataContainer>
 
-            <div>
-                <h2>Welcome!</h2>
-                <p>Enter your height and weight and you’ll see your BMI result here</p></div>
+            <SC.ResultContainer>
+                <SC.ResultTitle>Welcome!</SC.ResultTitle>
+                <SC.ResultText>Enter your height and weight and you’ll see your BMI result here</SC.ResultText></SC.ResultContainer>
         </SC.CustomForm>
     </SC.FormContainer>
     );

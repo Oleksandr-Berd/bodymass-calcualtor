@@ -107,3 +107,31 @@ transform: translateX(-24px) translateY(150%);
   color: ${(props) => props.theme.color.blue};
   line-height: 1.21;
 `;
+
+export const ResultContainer = styled.div`
+  padding-right: ${(props) => props.theme.space[8]};
+  padding-left: ${(props) => props.theme.space[8]};
+  padding-bottom: ${(props) => props.theme.space[8]};
+  padding-top: ${(props) => props.theme.space[8]};
+
+text-align: left;
+
+  background: linear-gradient(90deg, #345ff7 0%, #587dff 100%);
+  color: ${(props) => props.theme.color.white};
+
+  border-radius: ${props => props.theme.radius[3]};
+`;
+
+export const ResultTitle = styled.h2`
+margin-bottom: ${props => props.theme.space[6]};
+
+font-size: ${props => props.theme.size.XXM};
+line-height: 1.1;
+font-weight: ${props => props.theme.weight.bold};
+`
+
+export const ResultText = styled.p`
+  font-size: ${(props) => props.theme.size.XS};
+  line-height: 1.5;
+  font-weight: 700;
+`;
