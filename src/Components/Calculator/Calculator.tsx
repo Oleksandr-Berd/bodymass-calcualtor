@@ -6,19 +6,22 @@ interface IValues {
     system: string;
     weight: number;
     height: number;
+    
 }
 
 interface IProps{
-    calculateBMI: (weight: number, height: number) => void
+    calculateBMI: (weight: number, height: number) => void;
+    bmi: number;
+    idealWeightRange: string;
 }
 
-const Calculator: React.FC<IProps> = ({ calculateBMI }) => {
+const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange }) => {
 
     const formik = useFormik<IValues>({
         initialValues: {
             system: "metric",
-            weight: 0,
             height: 0,
+            weight: 0,
         },
         onSubmit: (values) => {
             console.log(values);
@@ -38,7 +41,7 @@ const Calculator: React.FC<IProps> = ({ calculateBMI }) => {
 
     useEffect(() => {
         if (formik.values.height > 0 && formik.values.weight > 0) {
-            calculateBMI(formik.values.height, formik.values.weight)
+            calculateBMI(formik.values.weight, formik.values.height)
         }
         return
 }, [calculateBMI, formik.values.height, formik.values.weight])
@@ -112,11 +115,14 @@ const Calculator: React.FC<IProps> = ({ calculateBMI }) => {
                         </SC.FlexElement>
                     </SC.InputContainer>
                 </SC.ImperialDataContainer>}
-
-
-            <SC.ResultContainer>
+            {bmi > 0 ? <SC.ResultContainer>
+                <p>Your BMI is...</p>
+                <SC.ResultTitle>{bmi}</SC.ResultTitle>
+                <SC.ResultText>Your BMI suggests you’re a healthy weight. Your ideal weight is between {idealWeightRange} kgs.</SC.ResultText></SC.ResultContainer> : <SC.ResultContainer>
                 <SC.ResultTitle>Welcome!</SC.ResultTitle>
-                <SC.ResultText>Enter your height and weight and you’ll see your BMI result here</SC.ResultText></SC.ResultContainer>
+                <SC.ResultText>Enter your height and weight and you’ll see your BMI result here</SC.ResultText></SC.ResultContainer>}
+
+            
         </SC.CustomForm>
     </SC.FormContainer>
     );

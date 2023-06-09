@@ -6,15 +6,20 @@ import { GlobalStyles } from 'utilities/GlobalStyles';
 import Calculator from 'Components/Calculator/Calculator';
 
 const App: React.FC = () => {
-  const [bmi, setBmi] = useState <number>(0)
+  const [bmi, setBmi] = useState<number>(0);
+  const [idealWeightRange, setIdealWeightRange] = useState<string>('');
+  
 
   const calculateBMI = (weight: number, height: number): void => {
     const heightInMeters = height / 100;
-    const bmi = (weight / heightInMeters/10).toFixed(2);
-    setBmi(Number(bmi))
-  }
+    const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+    setBmi(Number(bmi));
 
-  console.log(bmi);
+    const lowerLimit = 18.5 * (heightInMeters * heightInMeters);
+    const upperLimit = 24.9 * (heightInMeters * heightInMeters);
+    setIdealWeightRange(`${lowerLimit.toFixed(2)} - ${upperLimit.toFixed(2)}`);
+  };
+
 
 
   return (
@@ -22,7 +27,7 @@ const App: React.FC = () => {
       <GlobalStyles/>
       <SharedLayout>
         <Header />
-        <Calculator calculateBMI={calculateBMI } />
+        <Calculator calculateBMI={calculateBMI} bmi={bmi} idealWeightRange={idealWeightRange} />
      </SharedLayout>
     </>
   );
