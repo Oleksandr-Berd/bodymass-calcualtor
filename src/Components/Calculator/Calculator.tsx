@@ -1,16 +1,31 @@
 import { useFormik } from "formik";
 import * as SC from "./CalculatorStyled"
+import { log } from "console";
+
+interface IValues {
+    system: string;
+    weight: string;
+    height: string;
+}
 
 const Calculator: React.FC = () => {
 
-    const formik = useFormik({
+    const formik = useFormik<IValues>({
         initialValues: {
-            system: "metric"
+            system: "metric",
+            weight: "",
+            height: "",
         },
         onSubmit: (values) => {
             console.log(values);
         }
     });
+
+    const handleRadioChange = (evt: React.ChangeEvent<HTMLInputElement>): void => {
+        formik.handleChange(evt)
+
+        console.log(formik.values.system === "metric");
+    }
 
     return (<SC.FormContainer>
 
@@ -24,7 +39,7 @@ const Calculator: React.FC = () => {
                         name="system"
                         value="metric"
                         checked={formik.values.system === "metric"}
-                        onChange={formik.handleChange}
+                        onChange={handleRadioChange}
                     />
                     Metric
                 </SC.RadioLabel>
@@ -35,22 +50,52 @@ const Calculator: React.FC = () => {
                         name="system"
                         value="imperial"
                         checked={formik.values.system === "imperial"}
-                        onChange={formik.handleChange}
+                        onChange={handleRadioChange}
                     />
                     Imperial
                 </SC.RadioLabel>
             </SC.RadioContainer>
+            {formik.values.system === "metric" ?
+                <>
+                    <SC.DataContainer>
+                        <SC.DataLabel htmlFor="height">Height</SC.DataLabel>
+                        <SC.DataInput type="text" name="height" />
+                        <SC.DataText>cm</SC.DataText>
+                    </SC.DataContainer>
+                    <SC.DataContainer>
+                        <SC.DataLabel htmlFor="weight">Weight</SC.DataLabel>
+                        <SC.DataInput type="text" name="weight" />
+                        <SC.DataText>kg</SC.DataText>
+                    </SC.DataContainer>
+                </>
+                : <SC.ImperialDataContainer>
+                    <SC.DataLabel htmlFor="height">Height</SC.DataLabel>
+                    <SC.InputContainer>
+                        
+                        <SC.FlexElement>
 
-            <SC.DataContainer>
-                <SC.DataLabel htmlFor="height">Height</SC.DataLabel>
-                <SC.DataInput type="text" name="height" />
-                <SC.DataText>cm</SC.DataText>
-            </SC.DataContainer>
-            <SC.DataContainer>
-                <SC.DataLabel htmlFor="weight">Weight</SC.DataLabel>
-                <SC.DataInput type="text" name="weight" />
-                <SC.DataText>kg</SC.DataText>
-            </SC.DataContainer>
+                            <SC.ImperialInput type="text" name="height" />
+                            <SC.ImperialDataText text="main">ft</SC.ImperialDataText>
+                           
+                        </SC.FlexElement>
+                        <SC.FlexElement>
+                            <SC.ImperialInput type="text" name="height" />
+                            <SC.ImperialDataText>in</SC.ImperialDataText>
+                        </SC.FlexElement>
+                    </SC.InputContainer>
+                    <SC.DataLabel htmlFor="weight">Weight</SC.DataLabel>
+                    <SC.InputContainer>
+                        <SC.FlexElement>
+                            <SC.ImperialInput type="text" name="weight" />
+                            <SC.ImperialDataText text="main">st</SC.ImperialDataText>
+                        </SC.FlexElement>
+                        <SC.FlexElement>
+                            <SC.ImperialInput type="text" name="weight" />
+                            <SC.ImperialDataText>lbs</SC.ImperialDataText>
+                        </SC.FlexElement>
+                    </SC.InputContainer>
+                </SC.ImperialDataContainer>}
+
 
             <SC.ResultContainer>
                 <SC.ResultTitle>Welcome!</SC.ResultTitle>

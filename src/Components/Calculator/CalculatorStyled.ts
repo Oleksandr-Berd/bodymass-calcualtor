@@ -1,5 +1,9 @@
 import styled from "styled-components"
 
+interface IProps{
+    text?:"main"
+}
+
 export const FormContainer = styled.div`
   padding-right: ${(props) => props.theme.space[6]};
   padding-left: ${(props) => props.theme.space[6]};
@@ -61,22 +65,23 @@ export const RadioInput = styled.input`
 
 `;
 
-export const DataContainer = styled.div`
-position: relative;
+export const DataContainer = styled.div<IProps>`
+  position: relative;
 
-margin-bottom:${props => props.theme.space[4]};
-`
+  margin-bottom: ${(props) => props.theme.space[4]};
+`;
 
-export const DataLabel = styled.label`
-margin-bottom: ${props => props.theme.space[2]};
+export const DataLabel = styled.label<IProps>`
+  margin-bottom: ${(props) => props.theme.space[2]};
 
-  color: ${props => props.theme.color.electric};
-  font-size: ${props => props.theme.size.XS};
+  color: ${(props) => props.theme.color.electric};
+  font-size: ${(props) => props.theme.size.XS};
   line-height: 1.5;
 `;
 
-export const DataInput = styled.input`
-  width: ${(props) => props.theme.percentage[9]};
+export const DataInput = styled.input<IProps>`
+  width: ${(props) =>
+    props.theme.percentage[9]};
 
   padding-left: ${(props) => props.theme.space[6]};
   padding-bottom: ${(props) => props.theme.space[5]};
@@ -95,7 +100,7 @@ export const DataInput = styled.input`
   }
 `;
 
-export const DataText = styled.span`
+export const DataText = styled.span<IProps>`
 position: absolute;
 top: 0;
 right: 0;
@@ -135,3 +140,64 @@ export const ResultText = styled.p`
   line-height: 1.5;
   font-weight: 700;
 `;
+
+export const DataInputContainer = styled.div<IProps>`
+display: flex;
+flex-direction: row;
+`;
+
+//Imperial
+
+export const ImperialDataContainer = styled.div`
+display: flex;
+flex-direction: column;
+
+margin-bottom: ${props => props.theme.space[6]};
+`
+
+export const InputContainer = styled.div`
+position: relative;
+
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+`
+
+export const FlexElement = styled.div`
+margin-right: ${props => props.theme.space[4]};
+`
+
+export const ImperialInput = styled.input`
+  width:${props => props.theme.percentage[8]};
+
+  padding-left: ${(props) => props.theme.space[6]};
+  padding-bottom: ${(props) => props.theme.space[5]};
+  padding-top: ${(props) => props.theme.space[5]};
+
+  font-size: ${(props) => props.theme.size.M};
+  font-weight: ${(props) => props.theme.weight.bold};
+  color: ${(props) => props.theme.color.gun};
+  line-height: 1.21;
+
+  border: 1px solid #d8e2e7;
+  border-radius: ${(props) => props.theme.radius[2]};
+
+  &:focus {
+    border: 1px solid #345ff6;
+  }
+`;
+
+export const ImperialDataText = styled.span<IProps>`
+  position: absolute;
+  top: 0;
+  right: 0;
+left:${props => props.text === "main" && 0};
+  transform: ${props => props.text === "main" ? "translateX(100px) translateY(80%)" : "translateX(-24px) translateY(80%)"};
+
+  font-size: ${(props) => props.theme.size.M};
+  font-weight: ${(props) => props.theme.weight.bold};
+  color: ${(props) => props.theme.color.blue};
+  line-height: 1.21;
+`;
+
