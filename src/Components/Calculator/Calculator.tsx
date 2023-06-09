@@ -1,6 +1,5 @@
 import { useFormik } from "formik";
 import * as SC from "./CalculatorStyled"
-import { log } from "console";
 
 interface IValues {
     system: string;
@@ -24,12 +23,11 @@ const Calculator: React.FC = () => {
     const handleRadioChange = (evt: React.ChangeEvent<HTMLInputElement>): void => {
         formik.handleChange(evt)
 
-        console.log(formik.values.system === "metric");
     }
 
     return (<SC.FormContainer>
 
-        <SC.CustomForm onSubmit={formik.handleSubmit}>
+        <SC.CustomForm >
             <SC.Title>Enter your details below</SC.Title>
             <SC.RadioContainer>
                 <SC.RadioLabel htmlFor="metric">

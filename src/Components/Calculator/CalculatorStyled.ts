@@ -65,13 +65,13 @@ export const RadioInput = styled.input`
 
 `;
 
-export const DataContainer = styled.div<IProps>`
+export const DataContainer = styled.div`
   position: relative;
 
   margin-bottom: ${(props) => props.theme.space[4]};
 `;
 
-export const DataLabel = styled.label<IProps>`
+export const DataLabel = styled.label`
   margin-bottom: ${(props) => props.theme.space[2]};
 
   color: ${(props) => props.theme.color.electric};
@@ -79,7 +79,7 @@ export const DataLabel = styled.label<IProps>`
   line-height: 1.5;
 `;
 
-export const DataInput = styled.input<IProps>`
+export const DataInput = styled.input`
   width: ${(props) =>
     props.theme.percentage[9]};
 
@@ -100,7 +100,7 @@ export const DataInput = styled.input<IProps>`
   }
 `;
 
-export const DataText = styled.span<IProps>`
+export const DataText = styled.span`
 position: absolute;
 top: 0;
 right: 0;
@@ -141,7 +141,7 @@ export const ResultText = styled.p`
   font-weight: 700;
 `;
 
-export const DataInputContainer = styled.div<IProps>`
+export const DataInputContainer = styled.div`
 display: flex;
 flex-direction: row;
 `;
@@ -162,6 +162,10 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
+
+&:not(:last-child){
+    margin-bottom:${props => props.theme.space[4]}
+}
 `
 
 export const FlexElement = styled.div`
