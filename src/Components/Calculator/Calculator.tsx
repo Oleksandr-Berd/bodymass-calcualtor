@@ -1,19 +1,24 @@
 import { useFormik } from "formik";
 import * as SC from "./CalculatorStyled"
+import { useEffect } from "react";
 
 interface IValues {
     system: string;
-    weight: string;
-    height: string;
+    weight: number;
+    height: number;
 }
 
-const Calculator: React.FC = () => {
+interface IProps{
+    calculateBMI: (weight: number, height: number) => void
+}
+
+const Calculator: React.FC<IProps> = ({ calculateBMI }) => {
 
     const formik = useFormik<IValues>({
         initialValues: {
             system: "metric",
-            weight: "",
-            height: "",
+            weight: 0,
+            height: 0,
         },
         onSubmit: (values) => {
             console.log(values);
@@ -24,6 +29,20 @@ const Calculator: React.FC = () => {
         formik.handleChange(evt)
 
     }
+
+    const handleValuesChange = (evt: React.ChangeEvent<HTMLInputElement>): void => {
+        formik.handleChange(evt)
+
+    }
+
+
+    useEffect(() => {
+        if (formik.values.height > 0 && formik.values.weight > 0) {
+            calculateBMI(formik.values.height, formik.values.weight)
+        }
+        return
+}, [calculateBMI, formik.values.height, formik.values.weight])
+    
 
     return (<SC.FormContainer>
 
@@ -57,12 +76,12 @@ const Calculator: React.FC = () => {
                 <>
                     <SC.DataContainer>
                         <SC.DataLabel htmlFor="height">Height</SC.DataLabel>
-                        <SC.DataInput type="text" name="height" />
+                        <SC.DataInput type="number" name="height" onChange={handleValuesChange} />
                         <SC.DataText>cm</SC.DataText>
                     </SC.DataContainer>
                     <SC.DataContainer>
                         <SC.DataLabel htmlFor="weight">Weight</SC.DataLabel>
-                        <SC.DataInput type="text" name="weight" />
+                        <SC.DataInput type="number" name="weight" onChange={handleValuesChange}/>
                         <SC.DataText>kg</SC.DataText>
                     </SC.DataContainer>
                 </>
