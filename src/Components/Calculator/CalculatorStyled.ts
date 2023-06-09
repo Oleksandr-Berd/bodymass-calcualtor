@@ -1,15 +1,17 @@
-import { Field } from "formik";
 import styled from "styled-components"
 
 export const FormContainer = styled.div`
   padding-right: ${(props) => props.theme.space[6]};
   padding-left: ${(props) => props.theme.space[6]};
-  padding-bottom: ${props => props.theme.space[17]};
+  /* padding-bottom: ${(props) => props.theme.space[17]}; */
 
-  background-color: ${(props) => props.theme.color.border};
+  background-color: #E7F5FE;
 `;
 
 export const CustomForm = styled.form`
+  transform: translateY(-72px);
+  z-index: 10;
+
   padding-top: ${(props) => props.theme.space[6]};
   padding-bottom: ${(props) => props.theme.space[6]};
   padding-right: ${(props) => props.theme.space[6]};
