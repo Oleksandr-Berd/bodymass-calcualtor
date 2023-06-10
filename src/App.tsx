@@ -4,13 +4,14 @@ import SharedLayout from 'Components/SharedLayout/SharedLayout';
 import Header from 'Components/Header/Header';
 import { GlobalStyles } from 'utilities/GlobalStyles';
 import Calculator from 'Components/Calculator/Calculator';
+import Hero from 'Components/Hero/Hero';
 
 const App: React.FC = () => {
   const [bmi, setBmi] = useState<number>(0);
   const [imperialBmi, setImperialBmi] = useState<number>(0);
 
   const [idealWeightRange, setIdealWeightRange] = useState<string>('');
-  
+
 
   const calculateBMI = (weight: number, height: number): void => {
     const heightInMeters = height / 100;
@@ -35,18 +36,21 @@ const App: React.FC = () => {
   };
 
 
-  const resetBmi = ():void => {
+  const resetBmi = (): void => {
     setBmi(0)
     setImperialBmi(0)
-}
+  }
 
   return (
     <>
-      <GlobalStyles/>
+      <GlobalStyles />
       <SharedLayout>
         <Header />
-        <Calculator calculateBMI={calculateBMI} bmi={bmi} idealWeightRange={idealWeightRange} imperialBmi={imperialBmi} calculateImperialBMI={calculateImperialBMI} resetBmi={resetBmi} />
-     </SharedLayout>
+        <Calculator calculateBMI={calculateBMI} bmi={bmi}
+          idealWeightRange={idealWeightRange} imperialBmi={imperialBmi}
+          calculateImperialBMI={calculateImperialBMI} resetBmi={resetBmi} />
+        <Hero/>
+      </SharedLayout>
     </>
   );
 }

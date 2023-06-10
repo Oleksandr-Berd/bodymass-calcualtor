@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  background-color: #e7f5fe;
+`;
+
 export const Header = styled.header`
   padding-top: ${(props) => props.theme.space[8]};
   padding-bottom: 217px;

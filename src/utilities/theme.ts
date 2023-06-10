@@ -17,7 +17,7 @@ const theme: object = {
     "256px", //14
     "312px", //15
     "512px", //16
-    "72px",//17
+    "72px", //17
   ],
 
   percentage: [
@@ -67,6 +67,7 @@ const theme: object = {
     electric: "#5E6E85",
     border: "#D8E2E7",
     white: "#fff",
+    background: "#E7F5FE",
   },
 
   radius: [
@@ -75,8 +76,9 @@ const theme: object = {
     "12px", //2
     "16px", //3
     "20px", //4
-    "36px", //5
-    "50%", //6
+    "32px", //5
+    "36px", //6
+    "50%", //7
   ],
 };
 
