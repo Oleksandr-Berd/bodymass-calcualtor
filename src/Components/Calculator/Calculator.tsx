@@ -52,7 +52,7 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
             heightFeet: 0,
             heightInches: 0,
         };
-        
+
         formik.resetForm({ values: initialValues });
     };
 
@@ -76,8 +76,8 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
 
     useEffect(() => {
         resetBmi()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[formik.values.system])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [formik.values.system])
 
     return (<SC.FormContainer>
 
@@ -153,10 +153,10 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
                 <SC.ResultText>Your BMI suggests you’re a healthy weight. Your ideal weight is between{" "}
                     <span style={{ fontWeight: "700" }}>{idealWeightRange}{" "}</span>
                     kgs.</SC.ResultText></SC.ResultContainer> : imperialBmi === 0 ? <SC.ResultContainer>
-                <SC.ResultTitle>Welcome!</SC.ResultTitle>
-                <SC.ResultText>Enter your height and weight and you’ll see your BMI result here</SC.ResultText></SC.ResultContainer> : null}
-            
-            {imperialBmi > 0 &&<SC.ResultContainer>
+                        <SC.ResultTitle>Welcome!</SC.ResultTitle>
+                        <SC.ResultText>Enter your height and weight and you’ll see your BMI result here</SC.ResultText></SC.ResultContainer> : null}
+
+            {imperialBmi > 0 && <SC.ResultContainer>
                 <p style={{ fontWeight: "600", marginBottom: "8px" }}>Your BMI is...</p>
                 <SC.ResultTitle>{imperialBmi}</SC.ResultTitle>
                 <SC.ResultText>Your BMI suggests you’re a healthy weight. Your ideal weight is between{" "}

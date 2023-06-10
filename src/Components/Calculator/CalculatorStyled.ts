@@ -7,13 +7,12 @@ interface IProps{
 export const FormContainer = styled.div`
   padding-right: ${(props) => props.theme.space[6]};
   padding-left: ${(props) => props.theme.space[6]};
-  /* padding-bottom: ${(props) => props.theme.space[17]}; */
 
-  background-color: #E7F5FE;
+  background-color: ${(props) => props.theme.color.background}
 `;
 
 export const CustomForm = styled.form`
-  transform: translateY(-72px);
+  transform: translateY(-172px);
   z-index: 10;
 
   padding-top: ${(props) => props.theme.space[6]};
