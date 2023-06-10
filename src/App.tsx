@@ -26,8 +26,14 @@ const App: React.FC = () => {
     const weightInPounds = (weightStones * 14) + weightPounds;
     const totalHeightInches = (heightFeet * 12) + heightInches;
     const bmi = ((weightInPounds / (totalHeightInches * totalHeightInches)) * 703).toFixed(2);
-    setImperialBmi(Number(bmi))
-  }
+    setImperialBmi(Number(bmi));
+
+    const lowerLimit = 18.5 * (totalHeightInches * totalHeightInches) / 703;
+    const upperLimit = 24.9 * (totalHeightInches * totalHeightInches) / 703;
+
+    setIdealWeightRange(`${lowerLimit.toFixed(2)} - ${upperLimit.toFixed(2)}`);
+  };
+
 
   const resetBmi = ():void => {
     setBmi(0)
