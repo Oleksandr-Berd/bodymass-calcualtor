@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
 interface IProps{
-    text?:"main"
+    text?: "main";
+    image?: string;
 }
 
 export const FormContainer = styled.div`
@@ -42,6 +43,8 @@ export const RadioContainer = styled.div`
 `;
 
 export const RadioLabel = styled.label`
+position: relative;
+
   display: flex;
   align-items: center;
 
@@ -53,15 +56,46 @@ export const RadioLabel = styled.label`
   color: ${(props) => props.theme.color.gun};
   line-height: 1.5;
 
-  
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+  &:hover > div {
+    border: 1px solid #345ff6;
+  }
+
+ 
 `;
 
-export const RadioInput = styled.input`
+export const RadioInput = styled.input<IProps>`
+z-index: 10;
+
   width: 31px;
   height: 31px;
 
   margin-right: 18px;
+  opacity: 0;
 
+  &:checked + div {
+    width: 15px;
+    height: 15px;
+    background-size: 15px 15px;
+    background-color:rgba(52, 95, 246, 1);
+
+    border: 8px solid rgba(216, 226, 231, 1);
+  }
+`;
+
+export const CustomRadio = styled.div<IProps>`
+position: absolute;
+top:3px;
+left: 5px;
+
+  width: 31px;
+  height: 31px;
+
+  border: 1px solid #d8e2e7;
+  border-radius: ${(props) => props.theme.radius[5]};
 `;
 
 export const DataContainer = styled.div`

@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import * as SC from "./CalculatorStyled"
 import { useEffect } from "react";
+import backgroundImage from "assets/images/Ellipse 7.png"
 
 interface IValues {
     system: string;
@@ -85,7 +86,9 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
             <SC.Title>Enter your details below</SC.Title>
             <SC.RadioContainer>
                 <SC.RadioLabel htmlFor="metric">
+                    
                     <SC.RadioInput
+                        image={backgroundImage}
                         type="radio"
                         id="metric"
                         name="system"
@@ -93,6 +96,7 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
                         checked={formik.values.system === "metric"}
                         onChange={handleRadioChange}
                     />
+                    <SC.CustomRadio image={backgroundImage}></SC.CustomRadio>
                     Metric
                 </SC.RadioLabel>
                 <SC.RadioLabel htmlFor="male">
@@ -104,6 +108,7 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
                         checked={formik.values.system === "imperial"}
                         onChange={handleRadioChange}
                     />
+                    <SC.CustomRadio image={backgroundImage}></SC.CustomRadio>
                     Imperial
                 </SC.RadioLabel>
             </SC.RadioContainer>
