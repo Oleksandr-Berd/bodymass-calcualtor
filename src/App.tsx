@@ -7,6 +7,8 @@ import Calculator from 'Components/Calculator/Calculator';
 
 const App: React.FC = () => {
   const [bmi, setBmi] = useState<number>(0);
+  const [imperialBmi, setImperialBmi] = useState<number>(0);
+
   const [idealWeightRange, setIdealWeightRange] = useState<string>('');
   
 
@@ -20,14 +22,30 @@ const App: React.FC = () => {
     setIdealWeightRange(`${lowerLimit.toFixed(2)} - ${upperLimit.toFixed(2)}`);
   };
 
+  const calculateImperialBMI = (weightStones: number, weightPounds: number, heightFeet: number, heightInches: number): void => {
+    const weightInPounds = (weightStones * 14) + weightPounds;
+    const totalHeightInches = (heightFeet * 12) + heightInches;
+    const bmi = ((weightInPounds / (totalHeightInches * totalHeightInches)) * 703).toFixed(2);
+    setImperialBmi(Number(bmi));
 
+    const lowerLimit = 18.5 * (totalHeightInches * totalHeightInches) / 703;
+    const upperLimit = 24.9 * (totalHeightInches * totalHeightInches) / 703;
+
+    setIdealWeightRange(`${lowerLimit.toFixed(2)} - ${upperLimit.toFixed(2)}`);
+  };
+
+
+  const resetBmi = ():void => {
+    setBmi(0)
+    setImperialBmi(0)
+}
 
   return (
     <>
       <GlobalStyles/>
       <SharedLayout>
         <Header />
-        <Calculator calculateBMI={calculateBMI} bmi={bmi} idealWeightRange={idealWeightRange} />
+        <Calculator calculateBMI={calculateBMI} bmi={bmi} idealWeightRange={idealWeightRange} imperialBmi={imperialBmi} calculateImperialBMI={calculateImperialBMI} resetBmi={resetBmi} />
      </SharedLayout>
     </>
   );

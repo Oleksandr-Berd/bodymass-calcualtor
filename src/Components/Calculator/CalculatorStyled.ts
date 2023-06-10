@@ -138,7 +138,7 @@ font-weight: ${props => props.theme.weight.bold};
 export const ResultText = styled.p`
   font-size: ${(props) => props.theme.size.XS};
   line-height: 1.5;
-  font-weight: 700;
+  font-weight: 400;
 `;
 
 export const DataInputContainer = styled.div`
