@@ -58,7 +58,9 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
     };
 
     const handleValuesChange = (evt: React.ChangeEvent<HTMLInputElement>): void => {
-        formik.handleChange(evt)
+      
+
+        setTimeout(() => { formik.handleChange(evt)}, 300)
 
     }
 
