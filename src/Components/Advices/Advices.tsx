@@ -1,9 +1,12 @@
 import React from 'react';
+
 import advices from 'utilities/advices.json';
 import AdviceItem from './Advices.Item';
 import { ReactComponent as Advice1Svg } from 'assets/images/advice1.svg';
 import { ReactComponent as Advice2Svg } from 'assets/images/advice2.svg';
 import { ReactComponent as Advice3Svg } from 'assets/images/advice3.svg';
+
+import * as SC from "./AdvicesStyled"
 
 interface Advice {
     id: number;
@@ -20,14 +23,14 @@ const adviceIcons: Record<string, React.FC> = {
 
 const Advices: React.FC = () => {
     return (
-        <div>
+        <SC.AdvicesContainer>
             <ul>
                 {advices.map(({ id, icon, title, text }: Advice) => {
                     const IconComponent = adviceIcons[icon];
                     return <AdviceItem key={id} icon={<IconComponent />} title={title} text={text} />;
                 })}
             </ul>
-        </div>
+        </SC.AdvicesContainer>
     );
 };
 

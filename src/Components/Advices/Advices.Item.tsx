@@ -1,5 +1,7 @@
 import React from "react";
 
+import * as SC from "./AdvicesStyled"
+
 interface IProps {
   icon: React.ReactElement;
   title: string;
@@ -8,11 +10,11 @@ interface IProps {
 
 const AdviceItem: React.FC<IProps> = ({ icon, title, text }) => {
   return (
-    <li>
+    <SC.Item>
       {icon} 
-      <h3>{title}</h3>
-      <p>{text}</p>
-    </li>
+      <SC.Title>{title}</SC.Title>
+      <SC.Text>{text}</SC.Text>
+    </SC.Item>
   );
 };
 

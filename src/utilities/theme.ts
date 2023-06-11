@@ -18,6 +18,8 @@ const theme: object = {
     "312px", //15
     "512px", //16
     "72px", //17
+    "56px", //18
+    "40px", //19
   ],
 
   percentage: [
