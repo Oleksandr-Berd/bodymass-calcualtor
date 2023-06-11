@@ -1,6 +1,6 @@
 import React from 'react';
 
-import advices from 'utilities/advices.json';
+import advices from 'dataBase/advices.json';
 import AdviceItem from './Advices.Item';
 import { ReactComponent as Advice1Svg } from 'assets/images/advice1.svg';
 import { ReactComponent as Advice2Svg } from 'assets/images/advice2.svg';

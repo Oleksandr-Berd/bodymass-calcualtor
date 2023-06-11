@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 import * as SC from "./CalculatorStyled"
 import backgroundImage from "assets/images/Ellipse 7.png"
+import { toast } from "react-toastify";
 
 interface IValues {
     system: string;
@@ -95,7 +96,9 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [formik.values.system])
 
-    
+    const customId = "";
+
+
     return (<SC.FormContainer>
 
         <SC.CustomForm >
@@ -133,13 +136,17 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
                     <SC.DataContainer>
                         <SC.DataLabel htmlFor="height">Height</SC.DataLabel>
                         <SC.DataInput type="number" name="height" onChange={handleValuesChange} />
-                        {formik.errors.height && formik.values.height !==0 ? <SC.ErrorMessage>{formik.errors.height }</SC.ErrorMessage> : null}
+                        {formik.errors.height && formik.values.height !== 0 ? toast.error(formik.errors.height, {
+                            position: toast.POSITION.TOP_LEFT, toastId: customId 
+                        }): null}
                         <SC.DataText>cm</SC.DataText>
                     </SC.DataContainer>
                     <SC.DataContainer>
                         <SC.DataLabel htmlFor="weight">Weight</SC.DataLabel>
                         <SC.DataInput type="number" name="weight" onChange={handleValuesChange} />
-                        {formik.errors.weight && formik.values.weight !== 0 ? <SC.ErrorMessage>{formik.errors.weight }</SC.ErrorMessage> : null}
+                        {formik.errors.weight && formik.values.weight !== 0 ? toast.error(formik.errors.weight, {
+                            position: toast.POSITION.TOP_LEFT, toastId: customId
+                        }) : null}
                         <SC.DataText>kg</SC.DataText>
                     </SC.DataContainer>
                 </>
@@ -150,13 +157,17 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
                         <SC.FlexElement>
 
                             <SC.ImperialInput type="number" name="heightFeet" onChange={handleValuesChange} />
-                            {formik.errors.heightFeet && formik.values.heightFeet !== 0 ? <SC.ErrorMessage>{formik.errors.heightFeet}</SC.ErrorMessage> : null}
+                            {formik.errors.heightFeet && formik.values.heightFeet !== 0 ? toast.error(formik.errors.heightFeet, {
+                                position: toast.POSITION.TOP_LEFT, toastId: customId
+                            }) : null}
                             <SC.ImperialDataText text="main">ft</SC.ImperialDataText>
 
                         </SC.FlexElement>
                         <SC.FlexElement>
                             <SC.ImperialInput type="number" name="heightInches" onChange={handleValuesChange} />
-                            {formik.errors.heightInches && formik.values.heightInches !== 0 ? <SC.ErrorMessage>{formik.errors.heightInches}</SC.ErrorMessage> : null}
+                            {formik.errors.heightInches && formik.values.heightInches !== 0 ? toast.error(formik.errors.heightInches, {
+                                position: toast.POSITION.TOP_LEFT, toastId: customId
+                            }) : null}
                             <SC.ImperialDataText>in</SC.ImperialDataText>
                         </SC.FlexElement>
                     </SC.InputContainer>
@@ -164,12 +175,16 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
                     <SC.InputContainer>
                         <SC.FlexElement>
                             <SC.ImperialInput type="number" name="weightStones" onChange={handleValuesChange} />
-                            {formik.errors.weightStones && formik.values.weightStones !== 0 ? <SC.ErrorMessage>{formik.errors.weightStones}</SC.ErrorMessage> : null}
+                            {formik.errors.weightStones && formik.values.weightStones !== 0 ? toast.error(formik.errors.weightStones, {
+                                position: toast.POSITION.TOP_LEFT, toastId: customId
+                            }) : null}
                             <SC.ImperialDataText text="main">st</SC.ImperialDataText>
                         </SC.FlexElement>
                         <SC.FlexElement>
                             <SC.ImperialInput type="number" name="weightPounds" onChange={handleValuesChange} />
-                            {formik.errors.weightPounds && formik.values.weightPounds !== 0 ? <SC.ErrorMessage>{formik.errors.weightPounds}</SC.ErrorMessage> : null}
+                            {formik.errors.weightPounds && formik.values.weightPounds !== 0 ? toast.error(formik.errors.weightPounds, {
+                                position: toast.POSITION.TOP_LEFT, toastId: customId
+                            }) : null}
                             <SC.ImperialDataText>lbs</SC.ImperialDataText>
                         </SC.FlexElement>
                     </SC.InputContainer>

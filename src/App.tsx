@@ -6,6 +6,7 @@ import { GlobalStyles } from 'utilities/GlobalStyles';
 import Calculator from 'Components/Calculator/Calculator';
 import Hero from 'Components/Hero/Hero';
 import Advices from 'Components/Advices/Advices';
+import Limitations from 'Components/Limitations/Limitations';
 
 const App: React.FC = () => {
   const [bmi, setBmi] = useState<number>(0);
@@ -51,7 +52,8 @@ const App: React.FC = () => {
           idealWeightRange={idealWeightRange} imperialBmi={imperialBmi}
           calculateImperialBMI={calculateImperialBMI} resetBmi={resetBmi} />
         <Hero />
-        <Advices/>
+        <Advices />
+       <Limitations/>
       </SharedLayout>
     </>
   );
