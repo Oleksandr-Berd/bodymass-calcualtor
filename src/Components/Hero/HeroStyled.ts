@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.div`
+padding-bottom: ${props => props.theme.space[17]};
+
   background-color: ${(props) => props.theme.color.background};
 `;
 

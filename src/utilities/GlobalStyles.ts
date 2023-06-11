@@ -22,6 +22,7 @@ span, p, a{
 }
 
 ul, nav{
+  margin: 0;
   padding: 0;
   list-style: none;
 }
