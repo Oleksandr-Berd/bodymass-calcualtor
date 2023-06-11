@@ -1,3 +1,4 @@
+import * as SC from "./LimitationItemStyled"
 
 interface IProps {
     icon: React.ReactElement;
@@ -6,13 +7,13 @@ interface IProps {
 }
 
 const LimitationItem: React.FC<IProps> = ({ title, icon, text }) => {
-    return (<li>
-        <div>
+    return (<SC.Item>
+        <SC.IconContainer>
             {icon}
-            <h3>{title}</h3>
-        </div>
+            <SC.Title>{title}</SC.Title>
+        </SC.IconContainer>
         <p>{text}</p>
-    </li> );
+    </SC.Item> );
 }
  
 export default LimitationItem;
