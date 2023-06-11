@@ -199,7 +199,20 @@ export const InputContainer = styled.div`
 `;
 
 export const FlexElement = styled.div`
+position: relative;
+
   margin-right: ${(props) => props.theme.space[4]};
+
+  & > p {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 15;
+    transform: translateY(55px) translateX(40px); 
+
+    /* width: ${(props) => props.theme.percentage[9]}; */
+  }
+
 `;
 
 export const ImperialInput = styled.input`
@@ -237,3 +250,11 @@ export const ImperialDataText = styled.span<IProps>`
   color: ${(props) => props.theme.color.blue};
   line-height: 1.21;
 `;
+
+
+export const ErrorMessage = styled.p`
+margin-top: ${props => props.theme.space[4]};
+
+font-weight: ${props => props.theme.weight.bold};
+color: ${props => props.theme.color.error}
+`

@@ -68,6 +68,7 @@ const theme: object = {
     border: "#D8E2E7",
     white: "#fff",
     background: "#E7F5FE",
+    error: "#CD5C5C",
   },
 
   radius: [
