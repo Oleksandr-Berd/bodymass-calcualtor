@@ -13,6 +13,20 @@ export const Item = styled.li`
   box-shadow: 0px 4px 4px 0px #00000040;
 
   border-radius: ${(props) => props.theme.radius[3]};
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+    padding-top: ${(props) => props.theme.space[8]};
+    padding-bottom: ${(props) => props.theme.space[8]};
+    padding-left: ${(props) => props.theme.space[8]};
+    padding-right: ${(props) => props.theme.space[8]};
+
+    &:nth-child(5) {
+      grid-column: 1 / span 2;
+      margin-left: ${(props) => props.theme.space[13]};
+      margin-right: ${(props) => props.theme.space[13]};
+    }
+  }
 `;
 
 export const IconContainer = styled.div`

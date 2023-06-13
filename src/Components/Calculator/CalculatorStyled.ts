@@ -100,6 +100,7 @@ export const FlexDataContainer = styled.div`
 @media (min-width: 768px){
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 `
 
@@ -191,6 +192,10 @@ export const ResultTitle = styled.h2`
   font-size: ${(props) => props.theme.size.XXM};
   line-height: 1.1;
   font-weight: ${(props) => props.theme.weight.bold};
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const ResultText = styled.p`

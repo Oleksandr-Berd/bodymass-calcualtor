@@ -30,12 +30,12 @@ const limitIcons: Record<string, React.FC> = {
 const Limitations: React.FC = () => {
     return (<SC.Container>
         <LimitationsTitle />
-        <ul>
+        <SC.List>
             {limitations.map(({ id, title, icon, text }: Limitation) => {
                 const IconComponent = limitIcons[icon];
                 return <LimitationItem key={id} title={title} icon={< IconComponent />} text = { text } />}
             ) }
-        </ul>
+        </SC.List>
     </SC.Container> );
 }
  
