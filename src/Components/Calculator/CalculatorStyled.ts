@@ -122,12 +122,13 @@ export const FlexDataContainer = styled.div`
 
 export const DataContainer = styled.div`
   position: relative;
+  width: ${(props) => props.theme.percentage[10]};
 
   margin-bottom: ${(props) => props.theme.space[4]};
 
   @media (min-width: 768px) {
-    &:not(:last-child){
-        margin-right: ${props => props.theme.space[6]};
+    &:not(:last-child) {
+      margin-right: ${(props) => props.theme.space[6]};
     }
   }
 `;

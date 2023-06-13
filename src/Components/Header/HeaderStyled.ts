@@ -4,7 +4,6 @@ export const Container = styled.div`
   background-color: #e7f5fe;
 
   @media (min-width: 1440px) {
-
     border-bottom-right-radius: 35px;
     border-bottom-left-radius: 35px;
   }
@@ -34,11 +33,13 @@ export const Header = styled.header`
 `;
 
 export const TextContainer = styled.div`
-width: 465px;
+  @media (min-width: 768px) {
+    width: 465px;
 
-margin-top: 127px;
-margin-right: 397px;
-`
+    margin-right: 397px;
+    margin-top: 127px;
+  }
+`;
 
 export const Title = styled.h1`
   margin-top: ${(props) => props.theme.space[6]};

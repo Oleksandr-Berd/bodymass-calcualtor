@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const SharedLayout = styled.div`
   min-width: ${(props) => props.theme.width.mobile};
 
+
   /* background: #D6E6FE; */
 
   @media (min-width: 768px) {

@@ -51,8 +51,10 @@ const App: React.FC = () => {
   return (
     <>
       <GlobalStyles />
-      <SharedLayout>
-        {isDesktop ? <><SC.HeaderContainer>
+
+      {isDesktop ? <SharedLayout>
+        <SC.HeaderContainer>
+
           <Header />
           <Calculator calculateBMI={calculateBMI} bmi={bmi}
             idealWeightRange={idealWeightRange} imperialBmi={imperialBmi}
@@ -60,14 +62,17 @@ const App: React.FC = () => {
         </SC.HeaderContainer>
         <Hero />
         <Advices />
-       <Limitations/> </> : <> <Header />
-        <Calculator calculateBMI={calculateBMI} bmi={bmi}
-          idealWeightRange={idealWeightRange} imperialBmi={imperialBmi}
-          calculateImperialBMI={calculateImperialBMI} resetBmi={resetBmi} />
-        <Hero />
-        <Advices />
-            <Limitations /></>}
-      </SharedLayout>
+        <Limitations /> </SharedLayout> :
+        <SharedLayout>
+          <Header />
+          <Calculator calculateBMI={calculateBMI} bmi={bmi}
+            idealWeightRange={idealWeightRange} imperialBmi={imperialBmi}
+            calculateImperialBMI={calculateImperialBMI} resetBmi={resetBmi} />
+          <Hero />
+          <Advices />
+          <Limitations />
+        </SharedLayout>}
+
     </>
   );
 }
