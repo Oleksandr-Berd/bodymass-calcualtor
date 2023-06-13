@@ -12,8 +12,10 @@ const AdviceItem: React.FC<IProps> = ({ icon, title, text }) => {
   return (
     <SC.Item>
       {icon} 
+      <SC.TextContainer>
       <SC.Title>{title}</SC.Title>
-      <SC.Text>{text}</SC.Text>
+        <SC.Text>{text}</SC.Text>
+      </SC.TextContainer>
     </SC.Item>
   );
 };

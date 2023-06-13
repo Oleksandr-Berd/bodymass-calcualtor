@@ -96,10 +96,24 @@ export const CustomRadio = styled.div<IProps>`
   border-radius: ${(props) => props.theme.radius[5]};
 `;
 
+export const FlexDataContainer = styled.div`
+@media (min-width: 768px){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+`
+
 export const DataContainer = styled.div`
   position: relative;
 
   margin-bottom: ${(props) => props.theme.space[4]};
+
+  @media (min-width: 768px) {
+    &:not(:last-child){
+        margin-right: ${props => props.theme.space[6]};
+    }
+  }
 `;
 
 export const DataLabel = styled.label`
@@ -135,7 +149,7 @@ export const DataText = styled.span`
   top: 0;
   right: 0;
 
-  transform: translateX(-24px) translateY(150%);
+  transform: translateX(-50%) translateY(150%);
 
   font-size: ${(props) => props.theme.size.M};
   font-weight: ${(props) => props.theme.weight.bold};
@@ -155,6 +169,21 @@ export const ResultContainer = styled.div`
   color: ${(props) => props.theme.color.white};
 
   border-radius: ${(props) => props.theme.radius[3]};
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: ${props => props.theme.space[8]};
+
+    border-top-left-radius: 64px;
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+    border-bottom-left-radius: 64px;
+  }
+
+ 
 `;
 
 export const ResultTitle = styled.h2`
@@ -163,12 +192,20 @@ export const ResultTitle = styled.h2`
   font-size: ${(props) => props.theme.size.XXM};
   line-height: 1.1;
   font-weight: ${(props) => props.theme.weight.bold};
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const ResultText = styled.p`
   font-size: ${(props) => props.theme.size.XS};
   line-height: 1.5;
   font-weight: 400;
+
+  @media (min-width: 768px) {
+   width: 267px;
+  }
 `;
 
 export const DataInputContainer = styled.div`
@@ -191,28 +228,20 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   &:not(:last-child) {
     margin-bottom: ${(props) => props.theme.space[4]};
+
   }
 `;
 
 export const FlexElement = styled.div`
-position: relative;
+  position: relative;
 
-  margin-right: ${(props) => props.theme.space[4]};
-
-  & > p {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 15;
-    transform: translateY(55px) translateX(40px); 
-
-    /* width: ${(props) => props.theme.percentage[9]}; */
+  &:not(:nth-child(n + 2)) {
+    margin-right: ${(props) => props.theme.space[4]};
   }
-
 `;
 
 export const ImperialInput = styled.input`
@@ -239,16 +268,24 @@ export const ImperialDataText = styled.span<IProps>`
   position: absolute;
   top: 0;
   right: 0;
-  left: ${(props) => props.text === "main" && 0};
+z-index: 115;
+
   transform: ${(props) =>
     props.text === "main"
-      ? "translateX(100px) translateY(80%)"
-      : "translateX(-24px) translateY(80%)"};
+      ? "translateX(-70%) translateY(80%)"
+      : "translateX(-50%) translateY(80%)"};
 
   font-size: ${(props) => props.theme.size.M};
   font-weight: ${(props) => props.theme.weight.bold};
   color: ${(props) => props.theme.color.blue};
   line-height: 1.21;
+
+  @media (min-width: 768px) {
+    transform: ${(props) =>
+      props.text === "main"
+        ? "translateX(-300%) translateY(80%)"
+        : "translateX(-240%) translateY(80%)"};
+  }
 `;
 
 

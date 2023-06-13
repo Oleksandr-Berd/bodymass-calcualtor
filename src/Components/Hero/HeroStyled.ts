@@ -1,18 +1,29 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.div`
-padding-bottom: ${props => props.theme.space[17]};
+  padding-bottom: ${(props) => props.theme.space[17]};
 
   background-color: ${(props) => props.theme.color.background};
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
 `;
 
 export const Image = styled.img`
-position: absolute;
-bottom: 0;
-left: 10%;
+  position: absolute;
+  bottom: 0;
+  left: 10%;
 
-margin-right: auto;
-margin-left: auto;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: 768px) {
+    left: -10%;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -29,11 +40,21 @@ export const ImageContainer = styled.div`
   );
 
   border-radius: ${(props) => props.theme.radius[5]};
+
+  @media (min-width: 768px) {
+    width: 290px;
+
+    margin-bottom: 0;
+  }
 `;
 
 export const TextContainer = styled.div`
   padding-right: ${(props) => props.theme.space[6]};
   padding-left: ${(props) => props.theme.space[6]};
+
+  @media (min-width: 768px) {
+    width: 331px;
+  }
 `;
 
 export const Title = styled.h2`

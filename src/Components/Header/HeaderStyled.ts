@@ -28,6 +28,14 @@ export const Title = styled.h1`
   font-size: ${(props) => props.theme.size.XXM};
   font-weight: ${(props) => props.theme.weight.bold};
   line-height: 1.1;
+
+  @media (min-width: 768px) {
+    width: ${(props) => props.theme.percentage[7]};
+
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: ${(props) => props.theme.space[19]};
+  }
 `;
 
 export const Text = styled.p`
