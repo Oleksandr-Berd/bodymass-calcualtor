@@ -2,6 +2,12 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: #e7f5fe;
+
+  @media (min-width: 1440px) {
+
+    border-bottom-right-radius: 35px;
+    border-bottom-left-radius: 35px;
+  }
 `;
 
 export const Header = styled.header`
@@ -18,7 +24,21 @@ export const Header = styled.header`
     rgba(214, 252, 254, 0) 100%
   );
   border-radius: 0px 0px 35px 35px;
+
+  @media (min-width: 1440px) {
+    padding-top: 75px;
+    padding-left: 116px;
+
+    text-align: left;
+  }
 `;
+
+export const TextContainer = styled.div`
+width: 465px;
+
+margin-top: 127px;
+margin-right: 397px;
+`
 
 export const Title = styled.h1`
   margin-top: ${(props) => props.theme.space[6]};
@@ -35,6 +55,11 @@ export const Title = styled.h1`
     margin-right: auto;
     margin-left: auto;
     margin-top: ${(props) => props.theme.space[19]};
+  }
+
+  @media (min-width: 1440px) {
+   margin: 0;
+   margin-bottom:35px;
   }
 `;
 

@@ -24,12 +24,12 @@ const adviceIcons: Record<string, React.FC> = {
 const Advices: React.FC = () => {
     return (
         <SC.AdvicesContainer>
-            <ul>
+            <SC.List>
                 {advices.map(({ id, icon, title, text }: Advice) => {
                     const IconComponent = adviceIcons[icon];
-                    return <AdviceItem key={id} icon={<IconComponent />} title={title} text={text} />;
+                    return <AdviceItem key={id} icon={<IconComponent/>} title={title} text={text} />;
                 })}
-            </ul>
+            </SC.List>
         </SC.AdvicesContainer>
     );
 };

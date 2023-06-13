@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useMediaQuery } from '@mui/material';
+
+import * as SC from "./AppStyled"
 
 import SharedLayout from 'Components/SharedLayout/SharedLayout';
 import Header from 'Components/Header/Header';
@@ -13,6 +16,8 @@ const App: React.FC = () => {
   const [imperialBmi, setImperialBmi] = useState<number>(0);
 
   const [idealWeightRange, setIdealWeightRange] = useState<string>('');
+
+  const isDesktop = useMediaQuery('(min-width:1440px)');
 
 
   const calculateBMI = (weight: number, height: number): void => {
@@ -47,13 +52,21 @@ const App: React.FC = () => {
     <>
       <GlobalStyles />
       <SharedLayout>
-        <Header />
+        {isDesktop ? <><SC.HeaderContainer>
+          <Header />
+          <Calculator calculateBMI={calculateBMI} bmi={bmi}
+            idealWeightRange={idealWeightRange} imperialBmi={imperialBmi}
+            calculateImperialBMI={calculateImperialBMI} resetBmi={resetBmi} />
+        </SC.HeaderContainer>
+        <Hero />
+        <Advices />
+       <Limitations/> </> : <> <Header />
         <Calculator calculateBMI={calculateBMI} bmi={bmi}
           idealWeightRange={idealWeightRange} imperialBmi={imperialBmi}
           calculateImperialBMI={calculateImperialBMI} resetBmi={resetBmi} />
         <Hero />
         <Advices />
-       <Limitations/>
+            <Limitations /></>}
       </SharedLayout>
     </>
   );

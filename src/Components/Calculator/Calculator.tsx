@@ -198,8 +198,8 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
                 <SC.ResultText>Your BMI suggests you’re a healthy weight. Your ideal weight is between{" "}
                     <span style={{ fontWeight: "700" }}>{idealWeightRange}{" "}</span>
                         kgs.</SC.ResultText></div></SC.ResultContainer>
-                : imperialBmi === 0 ? <SC.ResultContainer>
-                        <SC.ResultTitle>Welcome!</SC.ResultTitle>
+                : imperialBmi === 0 ? <SC.ResultContainer status= "empty" >
+                        <SC.ResultTitle >Welcome!</SC.ResultTitle>
                         <SC.ResultText>Enter your height and weight and you’ll see your BMI result here</SC.ResultText></SC.ResultContainer> : null}
 
             {imperialBmi > 0 && <SC.ResultContainer>

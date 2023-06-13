@@ -12,7 +12,14 @@ export const Container = styled.div`
 
   @media (min-width: 768px) {
     padding-left: ${(props) => props.theme.space[19]};
-    padding-right:43px;
+    padding-right: 43px;
+  }
+
+  @media (min-width: 1440px) {
+    padding-left: 140px;
+    padding-right: 140px;
+
+    background-color: ${(props) => props.theme.color.white};
   }
 `;
 
@@ -23,5 +30,12 @@ export const List = styled.ul`
     
     column-gap: 15px;
     row-gap: 24px;
+  }
+
+  @media (min-width: 1440px){
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: ${props => props.theme.space[8]}
   }
 `;
