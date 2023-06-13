@@ -10,6 +10,12 @@ export const FormContainer = styled.div`
   padding-left: ${(props) => props.theme.space[6]};
 
   background-color: ${(props) => props.theme.color.background};
+
+  @media (min-width: 1440px) {
+    background-color: ${(props) => props.theme.color.white};
+
+    box-shadow: 16px 32px rgba(143, 174, 207, 0.25);
+  }
 `;
 
 export const CustomForm = styled.form`
@@ -25,6 +31,15 @@ export const CustomForm = styled.form`
 
   box-shadow: 16px 32px 56px rgba(143, 174, 207, 0.25);
   border-radius: ${(props) => props.theme.radius[3]};
+
+  @media (min-width: 1440px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(35%) translateX(-20%);
+
+width: 564px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -195,6 +210,10 @@ export const ResultTitle = styled.h2`
 
   @media (min-width: 768px) {
     margin-bottom: 0;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: ${(props) => props.theme.size.XL};
   }
 `;
 

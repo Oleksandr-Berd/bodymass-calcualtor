@@ -11,6 +11,19 @@ export const HeroContainer = styled.div`
     justify-content: space-between;
     align-items: flex-end;
   }
+
+  @media (min-width: 1440px) {
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 145px;
+    padding-bottom: 0;
+    margin-left: 140px;
+    margin-right: 140px;
+    margin-bottom: 96px;
+
+    background-color: ${(props) => props.theme.color.white};
+  }
 `;
 
 export const Image = styled.img`
@@ -23,6 +36,10 @@ export const Image = styled.img`
 
   @media (min-width: 768px) {
     left: -10%;
+  }
+
+  @media (min-width: 1440px) {
+    left: 0;
   }
 `;
 
@@ -46,6 +63,14 @@ export const ImageContainer = styled.div`
 
     margin-bottom: 0;
   }
+
+  @media (min-width: 1440px) {
+    width: 564px;
+    height: 388px;
+
+    margin-bottom: 0;
+    margin-right: 131px;
+  }
 `;
 
 export const TextContainer = styled.div`
@@ -60,10 +85,14 @@ export const TextContainer = styled.div`
 export const Title = styled.h2`
   margin-bottom: ${(props) => props.theme.space[8]};
 
-  font-size: 32px;
+  font-size: ${(props) => props.theme.size.SP};
   font-weight: ${(props) => props.theme.weight.bold};
   line-height: 1;
   color: ${(props) => props.theme.color.gun};
+
+  @media (min-width: 1440px) {
+    font-size: ${(props) => props.theme.size.XXM};
+  }
 `;
 
 export const Text = styled.p`
