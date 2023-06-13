@@ -48,7 +48,7 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
             heightFeet: 0,
             heightInches: 0,
         },
-        validationSchema:InputDataSchema,
+        validationSchema: InputDataSchema,
         onSubmit: (values) => {
             console.log(values);
         }
@@ -132,13 +132,13 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
                 </SC.RadioLabel>
             </SC.RadioContainer>
             {formik.values.system === "metric" ?
-                <>
+                <SC.FlexDataContainer>
                     <SC.DataContainer>
                         <SC.DataLabel htmlFor="height">Height</SC.DataLabel>
                         <SC.DataInput type="number" name="height" onChange={handleValuesChange} />
                         {formik.errors.height && formik.values.height !== 0 ? toast.error(formik.errors.height, {
-                            position: toast.POSITION.TOP_LEFT, toastId: customId 
-                        }): null}
+                            position: toast.POSITION.TOP_LEFT, toastId: customId
+                        }) : null}
                         <SC.DataText>cm</SC.DataText>
                     </SC.DataContainer>
                     <SC.DataContainer>
@@ -149,7 +149,7 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
                         }) : null}
                         <SC.DataText>kg</SC.DataText>
                     </SC.DataContainer>
-                </>
+                </SC.FlexDataContainer>
                 : <SC.ImperialDataContainer>
                     <SC.DataLabel htmlFor="height">Height</SC.DataLabel>
                     <SC.InputContainer>
@@ -185,16 +185,20 @@ const Calculator: React.FC<IProps> = ({ calculateBMI, bmi, idealWeightRange, imp
                             {formik.errors.weightPounds && formik.values.weightPounds !== 0 ? toast.error(formik.errors.weightPounds, {
                                 position: toast.POSITION.TOP_LEFT, toastId: customId
                             }) : null}
-                            <SC.ImperialDataText>lbs</SC.ImperialDataText>
+                            <SC.ImperialDataText>lb</SC.ImperialDataText>
                         </SC.FlexElement>
                     </SC.InputContainer>
                 </SC.ImperialDataContainer>}
             {bmi > 0 && imperialBmi === 0 ? <SC.ResultContainer>
-                <p style={{ fontWeight: "600", marginBottom: "8px" }}>Your BMI is...</p>
-                <SC.ResultTitle>{bmi}</SC.ResultTitle>
+                <div>
+                <p style={{ fontWeight: "600", marginBottom: "8px", fontSize: "16px" }}>Your BMI is...</p>
+                    <SC.ResultTitle>{bmi}</SC.ResultTitle>
+                </div>
+                <div>
                 <SC.ResultText>Your BMI suggests you’re a healthy weight. Your ideal weight is between{" "}
                     <span style={{ fontWeight: "700" }}>{idealWeightRange}{" "}</span>
-                    kgs.</SC.ResultText></SC.ResultContainer> : imperialBmi === 0 ? <SC.ResultContainer>
+                        kgs.</SC.ResultText></div></SC.ResultContainer>
+                : imperialBmi === 0 ? <SC.ResultContainer>
                         <SC.ResultTitle>Welcome!</SC.ResultTitle>
                         <SC.ResultText>Enter your height and weight and you’ll see your BMI result here</SC.ResultText></SC.ResultContainer> : null}
 
