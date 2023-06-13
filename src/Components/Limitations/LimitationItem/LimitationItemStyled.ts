@@ -21,10 +21,37 @@ export const Item = styled.li`
     padding-left: ${(props) => props.theme.space[8]};
     padding-right: ${(props) => props.theme.space[8]};
 
+    text-align: left;
+
     &:nth-child(5) {
       grid-column: 1 / span 2;
       margin-left: ${(props) => props.theme.space[13]};
       margin-right: ${(props) => props.theme.space[13]};
+    }
+  }
+
+  @media (min-width: 1440px) {
+width: 252px;    
+
+    &:nth-child(2) {
+      grid-column: 4 / span 2;
+    }
+
+    &:nth-child(3) {
+      grid-column: 3 / span 2;
+    }
+
+    &:nth-child(4) {
+      grid-column: 5 / span 2;
+    }
+
+    &:nth-child(5) {
+      grid-column: 2/ span 2;
+      margin: 0;
+    }
+
+    &:nth-child(6) {
+      grid-column: 4 / span 2;
     }
   }
 `;
@@ -44,4 +71,4 @@ export const Title = styled.h3`
   line-height: 1.21;
 `;
 
-export const Text = styled.p``
+export const Text = styled.p``;

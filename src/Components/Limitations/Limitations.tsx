@@ -9,6 +9,7 @@ import { ReactComponent as Lim4Svg } from 'assets/images/limitation4.svg';
 import { ReactComponent as Lim5Svg } from 'assets/images/limitation5.svg';
 import limitations from "dataBase/limitations.json"
 import LimitationItem from './LimitationItem/LimitationItem';
+import { useMediaQuery } from '@mui/material';
 
 
 interface Limitation {
@@ -27,16 +28,39 @@ const limitIcons: Record<string, React.FC> = {
 
 };
 
+
 const Limitations: React.FC = () => {
-    return (<SC.Container>
-        <LimitationsTitle />
-        <SC.List>
-            {limitations.map(({ id, title, icon, text }: Limitation) => {
-                const IconComponent = limitIcons[icon];
-                return <LimitationItem key={id} title={title} icon={< IconComponent />} text = { text } />}
-            ) }
-        </SC.List>
-    </SC.Container> );
+
+    const isDesktop = useMediaQuery('(min-width:1440px)');
+
+    return (
+        <>
+            {
+                isDesktop ?
+                    <SC.Container >
+                        
+                        <SC.List>
+                            <LimitationsTitle />
+                            {limitations.map(({ id, title, icon, text }: Limitation) => {
+                                const IconComponent = limitIcons[icon];
+                                return <LimitationItem key={id} title={title} icon={< IconComponent />} text={text} />
+                            }
+                            )}
+                        </SC.List>
+                    </SC.Container >
+                    : <SC.Container>
+                        <LimitationsTitle />
+                        <SC.List>
+                            {limitations.map(({ id, title, icon, text }: Limitation) => {
+                                const IconComponent = limitIcons[icon];
+                                return <LimitationItem key={id} title={title} icon={< IconComponent />} text={text} />
+                            }
+                            )}
+                        </SC.List>
+                    </SC.Container>
+            }
+        </>
+    );
 }
- 
+
 export default Limitations;

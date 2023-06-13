@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 interface IProps {
   text?: "main";
-  image?: string;
+    image?: string;
+    status?: string;
 }
 
 export const FormContainer = styled.div`
@@ -172,7 +173,7 @@ export const DataText = styled.span`
   line-height: 1.21;
 `;
 
-export const ResultContainer = styled.div`
+export const ResultContainer = styled.div<IProps>`
   padding-right: ${(props) => props.theme.space[8]};
   padding-left: ${(props) => props.theme.space[8]};
   padding-bottom: ${(props) => props.theme.space[8]};
@@ -190,7 +191,7 @@ export const ResultContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
 
-    margin-top: ${props => props.theme.space[8]};
+    margin-top: ${(props) => props.theme.space[8]};
 
     border-top-left-radius: 64px;
     border-top-right-radius: 999px;
@@ -198,7 +199,15 @@ export const ResultContainer = styled.div`
     border-bottom-left-radius: 64px;
   }
 
- 
+  @media (min-width: 1440px) {
+    display: ${(props) => props.status === "empty" && "block"};
+
+    & > h2 {
+      margin-bottom: ${(props) => props.status === "empty" && "16px"};
+
+      font-size: ${(props) => props.status === "empty" && "24px"};
+    }
+  }
 `;
 
 export const ResultTitle = styled.h2`
